@@ -9,7 +9,5 @@ def start():
     if start_up == 'no':
         sys.exit()
 
-entropy.temp_gen()
-
 if __name__ == "__main__":
     start()
