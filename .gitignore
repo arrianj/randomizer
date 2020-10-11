@@ -63,3 +63,7 @@ Untitled*.ipynb
 venv
 env-local
 zappa_settings.json
+
+# API Key
+######################
+config.py
