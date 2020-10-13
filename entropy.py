@@ -1,6 +1,7 @@
 from datetime import datetime
 import requests, json
 import config
+import pyinputplus as pyip
 
 def date_num_generator():
     # get current microsecond value up to six decimal places
@@ -34,4 +35,9 @@ def generator():
     temp_num = temp_num_generator()
     wind_num = wind_num_generator()
     full_number = date_num * int(temp_num * date_num) * int(wind_num * date_num) * int(date_num * wind_num ** temp_num)
-    print(full_number)
+    format_number = pyip.inputYesNo(prompt=('[?] Do you want to use decimal separators? (e.g. 1,234,567,890) [Y/N]: '))
+    if format_number == 'yes':
+        number_with_commas = "{:,}".format(full_number)
+        print(number_with_commas)
+    else:
+        print(full_number)
