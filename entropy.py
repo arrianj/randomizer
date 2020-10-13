@@ -33,5 +33,5 @@ def generator():
     date_num = date_num_generator()
     temp_num = temp_num_generator()
     wind_num = wind_num_generator()
-    full_number = date_num * int(temp_num * date_num) * int(wind_num * date_num)
+    full_number = date_num * int(temp_num * date_num) * int(wind_num * date_num) * int(date_num * wind_num ** temp_num)
     print(full_number)
