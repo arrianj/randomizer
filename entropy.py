@@ -37,7 +37,7 @@ def generator():
     full_number = date_num * int(temp_num * date_num) * int(wind_num * date_num) * int(date_num * wind_num ** temp_num)
     format_number = pyip.inputYesNo(prompt=('[?] Do you want to use decimal separators? (e.g. 1,234,567,890) [Y/N]: '))
     if format_number == 'yes':
-        number_with_commas = "{:,}".format(full_number)
-        print(number_with_commas)
+        full_number_formatted = f'{full_number:,}'
+        print(full_number_formatted)
     else:
         print(full_number)
