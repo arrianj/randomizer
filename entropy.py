@@ -42,3 +42,12 @@ def generator():
     raw_num_3 = str(date_num * int(temp_num * wind_num) * int(wind_num * date_num) * int(date_num * wind_num ** temp_num))
     full_num = raw_num_1 + raw_num_2 + raw_num_3
     return full_num
+
+def num_picker():
+    full_num = generator()
+    format_num = pyip.inputYesNo(prompt=('[?] Do you want to use decimal separators? (e.g. 1,234,567,890) [Y/N]: '))
+    if format_num == 'yes':
+        full_num_formatted = f'{int(full_num):,}'
+        print(full_num_formatted)
+    else:
+        print(full_num)

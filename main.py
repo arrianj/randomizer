@@ -5,7 +5,7 @@ import entropy
 def start():
     start_up = pyip.inputYesNo(prompt=('[?] Begin random number gen? [Y/N]: '))
     if start_up == 'yes':
-        entropy.generator()
+        entropy.num_picker()
     if start_up == 'no':
         sys.exit()
 
