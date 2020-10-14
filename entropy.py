@@ -1,6 +1,5 @@
 from datetime import datetime
 import requests, json
-import config
 import pyinputplus as pyip
 
 def date_num_generator():
@@ -11,7 +10,9 @@ def date_num_generator():
         return (x)
 
 def temp_num_generator():
-    api_key = config.api_key
+    key_file = open('key.txt', 'r')
+    api_key = key_file.readline().rstrip()
+    key_file.close()
     # get temp in farenheit for rapid city, south dakota
     base_url = 'http://api.openweathermap.org/data/2.5/weather?id=5768233&appid='
     complete_url = base_url + api_key + '&units=imperial'
@@ -21,7 +22,9 @@ def temp_num_generator():
     return x
 
 def wind_num_generator():
-    api_key = config.api_key
+    key_file = open('key.txt', 'r')
+    api_key = key_file.readline().rstrip()
+    key_file.close()
     # get wind speed in mph for buffalo, new york
     base_url = 'http://api.openweathermap.org/data/2.5/weather?id=5110629&appid='
     complete_url = base_url + api_key + '&units=imperial'

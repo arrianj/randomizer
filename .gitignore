@@ -67,3 +67,4 @@ zappa_settings.json
 # API Key
 ######################
 config.py
+key.txt
