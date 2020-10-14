@@ -37,10 +37,8 @@ def generator():
     date_num = date_num_generator()
     temp_num = temp_num_generator()
     wind_num = wind_num_generator()
-    full_number = date_num * int(temp_num * date_num) * int(wind_num * date_num) * int(date_num * wind_num ** temp_num)
-    format_number = pyip.inputYesNo(prompt=('[?] Do you want to use decimal separators? (e.g. 1,234,567,890) [Y/N]: '))
-    if format_number == 'yes':
-        full_number_formatted = f'{full_number:,}'
-        print(full_number_formatted)
-    else:
-        print(full_number)
+    raw_num_1 = str(date_num * int(temp_num * date_num) * int(wind_num * date_num) * int(date_num * wind_num ** temp_num))
+    raw_num_2 = str(date_num * int(temp_num * date_num) * int(wind_num * temp_num) * int(date_num * wind_num ** temp_num))
+    raw_num_3 = str(date_num * int(temp_num * wind_num) * int(wind_num * date_num) * int(date_num * wind_num ** temp_num))
+    full_num = raw_num_1 + raw_num_2 + raw_num_3
+    return full_num
