@@ -33,7 +33,7 @@ def wind_num_generator():
     response = requests.get(complete_url) 
     api = response.json()
     x = api['wind']['speed']
-    return x
+    return x * 99999
 
 def generator():
     date_num = date_num_generator()
@@ -52,9 +52,10 @@ def generator():
 def num_picker():
     full_num = generator()
     # variable to set length of final number
+    # make option to set to max?
     range_choice = pyip.inputNum(greaterThan=0, lessThan=len(full_num), prompt=('[?] How many digits do you want to generate?: '))
     # flag to enable formatting for the final number
-    format_num = pyip.inputYesNo(prompt=('[?] Do you want to use decimal separators? (e.g. 1,234,567,890) [Y/N]: '))
+    format_num = pyip.inputYesNo(prompt=('[?] Do you want to use decimal separators? (e.g. The commas in: 1,234,567,890) [Y/N]: '))
     if format_num == 'yes':
         formatted_num = f'{int(full_num[0:range_choice]):,}'
         print(formatted_num)
