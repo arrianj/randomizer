@@ -21,6 +21,7 @@ def temp_num_generator():
     response = requests.get(complete_url) 
     api = response.json()
     x = api['main']['temp']
+    # run x through if statements to ensure seed can generate a high digit count number
     if x < 0:
         return  -x
     elif x == 0:
@@ -40,10 +41,11 @@ def wind_num_generator():
     response = requests.get(complete_url) 
     api = response.json()
     x = api['wind']['speed']
+    # run x through if statements to ensure seed can generate a high digit count number
     if x < 0:
-        return  -x
+        return  -x * 99999
     elif x == 0:
-        return 99999
+        return 999999
     elif x == 1:
         return x * 99999
     else:
@@ -66,7 +68,9 @@ def num_picker():
     full_num = generator()
     # variable to set length of final number
     # make option to set to max?
-    range_choice = pyip.inputNum(greaterThan=0, lessThan=len(full_num), prompt=('[?] How many digits do you want to generate?: '))
+    range_choice = pyip.inputNum(max=len(full_num), prompt=(f'[?] How many digits do you want to generate? (Enter 0 for the maximum of {len(full_num)}): '))
+    if range_choice == 0:
+        range_choice = len(full_num)
     # flag to enable formatting for the final number
     format_num = pyip.inputYesNo(prompt=('[?] Do you want to use decimal separators? (e.g. The commas in: 1,234,567,890) [Y/N]: '))
     if format_num == 'yes':
