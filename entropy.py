@@ -9,9 +9,10 @@ def date_num_generator():
     if x != 0:
         return (x)
     else:
-        return 222222
+        return 654321
 
 def temp_num_generator():
+    current_time = datetime.now()
     key_file = open('key.txt', 'r')
     api_key = key_file.readline().rstrip()
     key_file.close()
@@ -24,14 +25,13 @@ def temp_num_generator():
     # run x through if statements to ensure seed can generate a high digit count number
     if x < 0:
         return  -x
-    elif x == 0:
-        return x + 9
-    elif x == 1:
-        return x * 9
+    elif x == 0 or x == 1:
+        return current_time.date 
     else:
         return x
 
 def wind_num_generator():
+    current_time = datetime.now()
     key_file = open('key.txt', 'r')
     api_key = key_file.readline().rstrip()
     key_file.close()
@@ -44,10 +44,8 @@ def wind_num_generator():
     # run x through if statements to ensure seed can generate a high digit count number
     if x < 0:
         return  -x * 99999
-    elif x == 0:
-        return 999999
-    elif x == 1:
-        return x * 99999
+    elif x == 0 or x == 1:
+        return current_time.date * 99999
     else:
         return x * 99999
 
