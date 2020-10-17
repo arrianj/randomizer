@@ -57,9 +57,10 @@ def generator():
     raw_num_1 = date_num * round(temp_num * date_num) * round(wind_num * date_num) * round(date_num * wind_num ** temp_num)
     raw_num_2 = date_num * round(temp_num * date_num) * round(wind_num * temp_num) * round(date_num * wind_num ** temp_num)
     raw_num_3 = date_num * round(temp_num * wind_num) * round(wind_num * date_num) * round(date_num * wind_num ** temp_num)
-    raw_num_4 = date_num * round(date_num * wind_num) * round(wind_num * date_num) * round(temp_num * wind_num ** temp_num)
+    raw_num_4 = round(date_num * wind_num) * round(wind_num * date_num) * round(temp_num * wind_num ** temp_num)
+    raw_num_5 = round(wind_num ** temp_num) * round(temp_num * wind_num ** temp_num)
     # combine those new numbers into a single string
-    full_num = str(raw_num_1) + str(raw_num_2) + str(raw_num_3) + str(raw_num_4)
+    full_num = str(raw_num_1) + str(raw_num_2) + str(raw_num_3) + str(raw_num_4) + str(raw_num_5)
     return full_num
 
 def num_picker():
