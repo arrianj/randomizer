@@ -7,7 +7,7 @@ def date_num_generator():
     current_time = datetime.now()
     x = current_time.microsecond 
     if x != 0:
-        return (x)
+        return x
     else:
         return 654321
 
@@ -45,9 +45,9 @@ def wind_num_generator():
     if x < 0:
         return  -x * 99999
     elif x == 0 or x == 1:
-        return current_time.date * 99999
+        return current_time.date * 9999
     else:
-        return x * 99999
+        return x * 9999
 
 def generator():
     date_num = date_num_generator()
